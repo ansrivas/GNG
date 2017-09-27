@@ -207,7 +207,7 @@ class GNG():
         self.save_img(fignum, output_images_dir)
 
         for i in xrange(1, max_iterations):
-            print("Iterating..{0:d}".format(i))
+            print("Iterating..{0:d}/{1}".format(i, max_iterations))
             for x in self.data:
                 self.update_winner(x)
 
@@ -291,13 +291,9 @@ def sort_nicely(limages):
 def convert_images_to_gif(output_images_dir, output_gif):
     """Convert a list of images to a gif."""
 
-    # list_images = (fn for fn in os.listdir(output_images_dir) if fn.endswith('.png'))
-    print(output_images_dir)
     image_dir = "{0}/*.png".format(output_images_dir)
-    print(image_dir)
     list_images = glob.glob(image_dir)
     file_names = sort_nicely(list_images)
-    print(file_names)
     images = [imageio.imread(fn) for fn in file_names]
     imageio.mimsave(output_gif, images)
 
@@ -309,5 +305,5 @@ if __name__ == "__main__":
     output_images_dir = 'images'
     output_gif = "output.gif"
     if grng is not None:
-        grng.train(max_iterations=10)
+        grng.train(max_iterations=10000)
         convert_images_to_gif(output_images_dir, output_gif)
