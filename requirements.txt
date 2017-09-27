@@ -1,0 +1,5 @@
+numpy==1.13.1
+networkx==2.0
+imageio==2.2.0
+matplotlib==2.0.2
+future==0.16.0
