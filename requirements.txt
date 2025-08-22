@@ -2,4 +2,4 @@ numpy==1.20.3
 networkx==2.5.1
 imageio==2.9.0
 matplotlib==3.4.2
-future==0.18.2
+future==1.0.0
